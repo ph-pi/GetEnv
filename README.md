@@ -118,7 +118,7 @@ try {
 
 ## License
 
-Private
+MIT
 
 ## Note
 
