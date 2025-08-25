@@ -18,7 +18,7 @@ if (envPath) {
 
 const result = dotenv.config(conf);
 if (result.error) {
-  console.warn("No valid .env file found");  
+  console.log("No valid .env file found");  
 }
 
 
