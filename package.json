@@ -1,0 +1,30 @@
+{
+    "name": "getenv",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "npm run build",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage"
+    },
+    "description": "Mini library to simplify howto retrieve environment variables for typescript projects.",
+    "author": "Ph Pichard",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/jest": "^30.0.0",
+        "@types/node": "^24.3.0",
+        "jest": "^30.0.5",
+        "ts-jest": "^29.4.1",
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.1"
+    },
+    "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node"
+    }
+}
