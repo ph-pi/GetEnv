@@ -45,7 +45,7 @@ if (envPath) {
 }
 const result = dotenv.config(conf);
 if (result.error) {
-    throw new Error(`Erreur lors du chargement du fichier .env à "${envPath}" : ${result.error.message}`);
+    console.warn("No valid .env file found");
 }
 function get_from_file(filename) {
     if (!filename) {
@@ -58,19 +58,19 @@ function get_from_file(filename) {
         return undefined;
     }
 }
-function getEnv(varName, opts = {}) {
+function getEnv(varName, opts) {
     let value = process.env[varName];
     if (value != undefined) {
         return value;
     }
-    if ('file' in opts && opts.file == true) {
+    if (opts && 'file' in opts && opts.file == true) {
         let filename = process.env[`${varName}_FILE`];
         let value = get_from_file(filename);
         if (value != undefined) {
             return value;
         }
     }
-    if ('fallback' in opts) {
+    if (opts && 'fallback' in opts) {
         return opts.fallback;
     }
     throw new Error(`Variable ${varName} is not defined`);
